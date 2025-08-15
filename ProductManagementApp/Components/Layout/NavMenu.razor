@@ -1,6 +1,10 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
+﻿@using Microsoft.Extensions.Localization
+@using ProductManagementApp.Locales
+@inject IStringLocalizer<Resources> L
+
+<div class="top-row navbar navbar-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="">ProductManagementApp</a>
+        <a class="navbar-brand" href="">Product Management</a>
     </div>
 </div>
 
@@ -10,13 +14,13 @@
     <nav class="flex-column">
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <Icon Name="IconName.HouseDoorFill" Class="me-2" /> Home
+                <Icon Name="IconName.HouseDoorFill" Class="mx-2" /> @L["Home"]
             </NavLink>
         </div>
 
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="products">
-                <Icon Name="IconName.Box" Class="me-2" /> Products
+                <Icon Name="IconName.Box" Class="mx-2" /> @L["Products"]
             </NavLink>
         </div>
 
@@ -24,13 +28,13 @@
             @if (User?.Identity?.IsAuthenticated ?? false)
             {
                 <NavLink class="nav-link" href="MicrosoftIdentity/Account/SignOut">
-                    <Icon Name="IconName.BoxArrowInLeft" Class="me-2" /> Logout
+                    <Icon Name="IconName.BoxArrowInLeft" Class="mx-2" /> @L["Logout"]
                 </NavLink>
             }
             else
             {
                 <NavLink class="nav-link" href="MicrosoftIdentity/Account/SignIn">
-                    <Icon Name="IconName.BoxArrowInRight" Class="me-2" /> Login
+                    <Icon Name="IconName.BoxArrowInRight" Class="mx-2" /> @L["Login"]
                 </NavLink>
             }
         </div>

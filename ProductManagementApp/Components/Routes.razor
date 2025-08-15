@@ -1,4 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Components.Authorization;
+@using Microsoft.Extensions.Localization
+@using ProductManagementApp.Locales
+@inject IStringLocalizer<Resources> L
 
 <CascadingAuthenticationState>
     <Router AppAssembly="typeof(Program).Assembly">
@@ -8,7 +11,7 @@
         </Found>
         <NotFound>
             <LayoutView Layout="typeof(Layout.MainLayout)">
-                <p>Sorry, there's nothing at this address.</p>
+                <p>@L["PageNotFound"]</p>
             </LayoutView>
         </NotFound>
     </Router>

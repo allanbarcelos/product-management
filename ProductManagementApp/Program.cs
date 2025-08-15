@@ -1,14 +1,51 @@
+using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using ProductManagementApp.Components;
 using ProductManagementApp.Services;
+using Microsoft.Identity.Web;
+using Microsoft.Identity.Web.UI;
+using ProductManagementApp.Data;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Database connection string
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlite(connectionString));
+
+// Azure AD
+builder.Services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
+    .AddMicrosoftIdentityWebApp(builder.Configuration.GetSection("AzureAd"));
+
+// Cookie 
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.Cookie.SameSite = SameSiteMode.Lax;
+});
+
+//  Identity UI (for sigin-in, sign-out, etc.)
+builder.Services.AddControllersWithViews()
+    .AddMicrosoftIdentityUI();
+
+// Razor Pages for Identity UI
+builder.Services.AddRazorPages();
+
+// Services
+
+// Product Management Service
+builder.Services.AddScoped<IProductService, ProductService>();
+
 // Add services to the container.
+builder.Services.AddAuthenticationCore();
+builder.Services.AddCascadingAuthenticationState();
+
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
-// Services
-builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddBlazorBootstrap();
+
+// Controllers
+builder.Services.AddControllers();
 
 var app = builder.Build();
 
@@ -21,9 +58,16 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
 app.UseStaticFiles();
+
+app.UseRouting();
+
+app.UseAuthentication();
+app.UseAuthorization();
 app.UseAntiforgery();
+
+app.MapControllers();
+app.MapRazorPages();
 
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();

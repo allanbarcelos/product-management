@@ -1,0 +1,49 @@
+@page "/products"
+@using ProductManagementApp.Models
+@using ProductManagementApp.Services
+@inject IProductService ProductService
+@inject NavigationManager Navigation
+
+<h1>Products</h1>
+
+@if (products is null)
+{
+    <p><em>Loading...</em></p>
+}
+else if (!products.Any())
+{
+    <p>No products found.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>CreatedAt</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in products)
+            {
+                <tr>
+                    <td>@product.Name</td>
+                    <td>@product.Description</td>
+                    <td>@product.Price</td>
+                    <td>@product.CreatedAt</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<Product>? products;
+
+    protected override async Task OnInitializedAsync()
+    {
+        products = new();
+    }
+}

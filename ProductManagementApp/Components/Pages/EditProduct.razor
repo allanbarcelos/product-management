@@ -3,5 +3,109 @@
 @using ProductManagementApp.Models
 @using ProductManagementApp.Services
 @inject IProductService ProductService
+@using Microsoft.Extensions.Localization
+@using ProductManagementApp.Locales
+@inject IProductService ProductService
+@inject IStringLocalizer<Resources> L
 
-<h3>Edit Product</h3>
+<h3>@L["EditProduct"]</h3>
+
+@if(loading)
+{
+    <p>@L["LoadingProduct"]...</p>
+}
+else if (notFound)
+{
+    <div class="alert alert-danger">
+        @L["ProductNotFound"]
+    </div>
+}
+else
+{
+
+    <EditForm Model="@product" OnValidSubmit="HandleValidSubmit">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div class="form-group">
+            <label for="name">@L["Name"]</label>
+            <InputText id="name" class="form-control" @bind-Value="product.Name" />
+            <ValidationMessage For="@(() => product.Name)" />
+        </div>
+
+        <div class="form-group">
+            <label for="description">@L["Description"]</label>
+            <InputTextArea id="description" class="form-control" @bind-Value="product.Description" />
+            <ValidationMessage For="@(() => product.Description)" />
+        </div>
+
+        <div class="form-group">
+            <label for="price">@L["Price"]</label>
+            <InputNumber id="price" class="form-control" @bind-Value="product.Price" />
+            <ValidationMessage For="@(() => product.Price)" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">@L["Submit"]</button>
+
+    </EditForm>
+
+    @if(updated)
+    {
+        <div class="alert alert-success mt-3">
+            @L["ProductUpdatedSuccessfully"]
+        </div>
+    }
+
+    @if(updateFailed)
+    {
+        <div class="alert alert-danger mt-3">
+            @L["ProductUpdateFailed"] @errorMessage
+        </div>
+    }
+}
+@code {
+    [Parameter]
+    public Guid Id { get; set; }
+
+    private Product product = new Product();
+    private bool loading = true;
+    private bool updated = false;
+    private bool notFound = false;
+    private bool updateFailed = false;
+    private string errorMessage = string.Empty;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            product = await ProductService.GetProductByIdAsync(Id);
+            if (product == null)
+            {
+                notFound = true;
+            }
+        }
+        catch (Exception)
+        {
+            notFound = true;
+        }
+        finally
+        {
+            loading = false;
+        }
+    }
+
+    private async Task HandleValidSubmit()
+    {
+        try
+        {
+            await ProductService.UpdateProductAsync(product);
+            updated = true;
+        }
+        catch (Exception ex)
+        {
+            updateFailed = true;
+            errorMessage = ex.Message;
+        }
+      
+    }
+}

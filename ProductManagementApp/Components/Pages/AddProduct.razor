@@ -2,6 +2,54 @@
 
 @using ProductManagementApp.Models
 @using ProductManagementApp.Services
+@using Microsoft.Extensions.Localization
+@using ProductManagementApp.Locales
 @inject IProductService ProductService
+@inject IStringLocalizer<Resources> L
 
-<h3>Add Product</h3>
+<h3>@L["AddProduct"]</h3>
+
+<EditForm Model="@product" OnValidSubmit="HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="form-group">
+        <label for="name">@L["Name"]</label>
+        <InputText id="name" class="form-control" @bind-Value="product.Name" />
+        <ValidationMessage For="@(() => product.Name)" />
+    </div>
+
+    <div class="form-group">
+        <label for="description">@L["Description"]</label>
+        <InputTextArea id="description" class="form-control" @bind-Value="product.Description" />
+        <ValidationMessage For="@(() => product.Description)" />
+    </div>
+
+    <div class="form-group">
+        <label for="price">@L["Price"]</label>
+        <InputNumber id="price" class="form-control" @bind-Value="product.Price" />
+        <ValidationMessage For="@(() => product.Price)" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">@L["Submit"]</button>
+
+</EditForm>
+
+@if(submited)
+{
+    <div class="alert alert-success mt-3">
+        @L["ProductAddedSuccessfully"]
+    </div>
+}
+
+@code {
+    private Product product = new Product();
+    private bool submited = false;
+
+    private async Task HandleValidSubmit()
+    {
+        await ProductService.AddProductAsync(product);
+        submited = true;
+        product = new Product(); // Reset the form
+    }
+}

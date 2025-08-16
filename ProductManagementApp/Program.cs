@@ -72,7 +72,7 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
-string[] supportedCultures = new[] { "en", "fr" };
+string[] supportedCultures = [ "en", "fr" ];
 var localizationOptions = new RequestLocalizationOptions()
     .SetDefaultCulture(supportedCultures[0])
     .AddSupportedCultures(supportedCultures)

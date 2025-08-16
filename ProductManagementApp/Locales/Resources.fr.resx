@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
   <data name="Home" xml:space="preserve">
-    <value>Home</value>
+    <value>Accueil</value>
   </data>
   <data name="Products" xml:space="preserve">
-    <value>Products</value>
+    <value>Produits</value>
   </data>
   <data name="Logout" xml:space="preserve">
-    <value>Logout</value>
+    <value>Se déconnecter</value>
   </data>
   <data name="Login" xml:space="preserve">
-    <value>Login</value>
+    <value>Se connecter</value>
   </data>
   <data name="About" xml:space="preserve">
-    <value>About</value>
+    <value>À propos</value>
   </data>
   <data name="PageNotFound" xml:space="preserve">
-    <value>Sorry, Page not Found</value>
+    <value>Désolé, page non trouvée</value>
   </data>
   <data name="ErrorOccurred" xml:space="preserve">
-    <value>An unhandled error has occurred.</value>
+    <value>Une erreur non gérée s'est produite.</value>
   </data>
   <data name="Reload" xml:space="preserve">
-    <value>Reload</value>
+    <value>Recharger</value>
   </data>
   <data name="Dismiss" xml:space="preserve">
     <value>🗙</value>
@@ -30,134 +30,133 @@
 
   <!-- Add Product Page -->
   <data name="AddProduct" xml:space="preserve">
-    <value>Add Product</value>
+    <value>Ajouter un produit</value>
   </data>
   <data name="Save" xml:space="preserve">
-    <value>Save</value>
+    <value>Enregistrer</value>
   </data>
   <data name="ProductAddedSuccess" xml:space="preserve">
-    <value>Product added successfully!</value>
+    <value>Produit ajouté avec succès !</value>
   </data>
 
   <!-- Edit Product Page -->
   <data name="EditProduct" xml:space="preserve">
-    <value>Edit Product</value>
+    <value>Modifier le produit</value>
   </data>
   <data name="Update" xml:space="preserve">
-    <value>Update</value>
+    <value>Mettre à jour</value>
   </data>
   <data name="ProductUpdatedSuccess" xml:space="preserve">
-    <value>Product updated successfully!</value>
+    <value>Produit mis à jour avec succès !</value>
   </data>
   <data name="ProductNotFound" xml:space="preserve">
-    <value>Product not found.</value>
+    <value>Produit non trouvé.</value>
   </data>
   <data name="LoadingProduct" xml:space="preserve">
-    <value>Loading product...</value>
+    <value>Chargement du produit…</value>
   </data>
 
   <!-- Product List Page -->
   <data name="FilterProducts" xml:space="preserve">
-    <value>Filter products...</value>
+    <value>Filtrer les produits…</value>
   </data>
   <data name="Apply" xml:space="preserve">
-    <value>Apply</value>
+    <value>Appliquer</value>
   </data>
   <data name="Clear" xml:space="preserve">
-    <value>Clear</value>
+    <value>Effacer</value>
   </data>
   <data name="AddProductButton" xml:space="preserve">
-    <value>Add Product</value>
+    <value>Ajouter un produit</value>
   </data>
   <data name="Loading" xml:space="preserve">
-    <value>Loading...</value>
+    <value>Chargement…</value>
   </data>
   <data name="NoProductsFound" xml:space="preserve">
-    <value>No products found.</value>
+    <value>Aucun produit trouvé.</value>
   </data>
   <data name="Name" xml:space="preserve">
-    <value>Name</value>
+    <value>Nom</value>
   </data>
   <data name="Description" xml:space="preserve">
     <value>Description</value>
   </data>
   <data name="Price" xml:space="preserve">
-    <value>Price</value>
+    <value>Prix</value>
   </data>
   <data name="CreatedAt" xml:space="preserve">
-    <value>Created At</value>
+    <value>Créé le</value>
   </data>
   <data name="Actions" xml:space="preserve">
     <value>Actions</value>
   </data>
   <data name="Edit" xml:space="preserve">
-    <value>Edit</value>
+    <value>Modifier</value>
   </data>
   <data name="Delete" xml:space="preserve">
-    <value>Delete</value>
+    <value>Supprimer</value>
   </data>
   <data name="Previous" xml:space="preserve">
-    <value>Previous</value>
+    <value>Précédent</value>
   </data>
   <data name="Next" xml:space="preserve">
-    <value>Next</value>
+    <value>Suivant</value>
   </data>
 
   <!-- Error Page -->
   <data name="ErrorTitle" xml:space="preserve">
-    <value>Error.</value>
+    <value>Erreur.</value>
   </data>
   <data name="ErrorMessage" xml:space="preserve">
-    <value>An error occurred while processing your request.</value>
+    <value>Une erreur s'est produite lors du traitement de votre demande.</value>
   </data>
   <data name="RequestId" xml:space="preserve">
-    <value>Request ID:</value>
+    <value>ID de la requête :</value>
   </data>
   <data name="DevelopmentMode" xml:space="preserve">
-    <value>Development Mode</value>
+    <value>Mode Développement</value>
   </data>
   <data name="DevelopmentWarning" xml:space="preserve">
-    <value>The Development environment shouldn't be enabled for deployed applications.</value>
+    <value>L’environnement de développement ne doit pas être activé pour les applications déployées.</value>
   </data>
 
-
-  <!-- Error Page Details -->
+  <!-- Page d'erreur -->
   <data name="ErrorPageTitle" xml:space="preserve">
-    <value>Error</value>
+    <value>Erreur</value>
   </data>
   <data name="ErrorHeading" xml:space="preserve">
-    <value>Error.</value>
+    <value>Erreur.</value>
   </data>
   <data name="ErrorSubHeading" xml:space="preserve">
-    <value>An error occurred while processing your request.</value>
+    <value>Une erreur s'est produite lors du traitement de votre requête.</value>
   </data>
   <data name="ShowRequestIdLabel" xml:space="preserve">
-    <value>Request ID:</value>
+    <value>ID de requête :</value>
   </data>
   <data name="ErrorDevModeInfo" xml:space="preserve">
-    <value>Swapping to <strong>Development</strong> environment will display more detailed information about the error that occurred.</value>
+    <value>Le passage à l'environnement <strong>Développement</strong> affichera des informations plus détaillées sur l'erreur qui s'est produite.</value>
   </data>
   <data name="ErrorDevWarningDetail" xml:space="preserve">
-    <value>It can result in displaying sensitive information from exceptions to end users. For local debugging, enable the <strong>Development</strong> environment by setting the <strong>ASPNETCORE_ENVIRONMENT</strong> environment variable to <strong>Development</strong> and restarting the app.</value>
+    <value>Cela peut entraîner l'affichage d'informations sensibles provenant des exceptions aux utilisateurs finaux. Pour le débogage local, activez l'environnement <strong>Développement</strong> en définissant la variable d'environnement <strong>ASPNETCORE_ENVIRONMENT</strong> sur <strong>Développement</strong> puis redémarrez l'application.</value>
   </data>
 
 
   <!-- Product Validation Messages -->
   <data name="ProductNameRequired" xml:space="preserve">
-    <value>Product name is required.</value>
+    <value>Le nom du produit est obligatoire.</value>
   </data>
   <data name="ProductPriceRequired" xml:space="preserve">
-    <value>Price is required.</value>
+    <value>Le prix est obligatoire.</value>
   </data>
   <data name="ProductPriceRange" xml:space="preserve">
-    <value>Price must be greater than 0.</value>
+    <value>Le prix doit être supérieur à 0.</value>
   </data>
 
-  <!-- Home Page -->
+  <!-- Page d'accueil -->
   <data name="HelloWorldTitle" xml:space="preserve">
-    <value>Hello, world!</value>
+    <value>Bonjour, le monde !</value>
   </data>
   <data name="WelcomeMessage" xml:space="preserve">
-    <value>Welcome to your new app.</value>
+    <value>Bienvenue dans votre nouvelle application.</value>
   </data>
 </root>

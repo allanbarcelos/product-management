@@ -3,12 +3,9 @@
 @using Microsoft.AspNetCore.WebUtilities
 @using ProductManagementApp.Models
 @using ProductManagementApp.Services
-@using ProductManagementApp.Locales
-@using Microsoft.Extensions.Localization
 
 @inject IProductService ProductService
 @inject NavigationManager Navigation
-@inject IStringLocalizer<Resources> L
 
 <h1>@L["Products"]</h1>
 

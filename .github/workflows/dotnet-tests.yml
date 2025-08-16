@@ -1,0 +1,31 @@
+name: .NET Tests Workflow
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Restore dependencies
+        run: dotnet restore ProductManagement.sln
+
+      - name: Build the solution
+        run: dotnet build ProductManagement.sln --configuration Release --no-restore
+
+      - name: Run tests
+        run: dotnet test ProductManagementTests/ProductManagementTests.csproj --configuration Release --no-build --verbosity normal

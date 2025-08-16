@@ -27,7 +27,7 @@
         <div class="nav-item px-3">
             @if (User?.Identity?.IsAuthenticated ?? false)
             {
-                <NavLink class="nav-link" href="MicrosoftIdentity/Account/SignOut">
+                <NavLink class="nav-link" href="MicrosoftIdentity/Account/SignOut?post_logout_redirect_uri=/">
                     <Icon Name="IconName.BoxArrowInLeft" Class="mx-2" /> @L["Logout"]
                 </NavLink>
             }

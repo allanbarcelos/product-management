@@ -3,6 +3,8 @@
 @using System.Globalization
 @inject IStringLocalizer<Resources> L
 @using ProductManagementApp.Locales
+@using Microsoft.AspNetCore.Components.Authorization
+@using System.Security.Claims
 
 <div class="page">
     <div class="sidebar">
@@ -11,6 +13,10 @@
 
     <main>
         <div class="top-row px-4">
+            @if (User?.Identity?.IsAuthenticated ?? false)
+            {
+                <span class="me-3">@L["Hello"], @User.Identity.Name</span>
+            }
             <CultureSelector />
             <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">@L["About"]</a>
         </div>
@@ -26,3 +32,16 @@
     <a href="" class="reload">@L["Reload"]</a>
     <a class="dismiss">@L["DIsmiss"]</a>
 </div>
+
+@code {
+    [CascadingParameter]
+    private Task<AuthenticationState> AuthenticationStateTask { get; set; }
+
+    private ClaimsPrincipal User;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthenticationStateTask;
+        User = authState.User;
+    }
+}

@@ -1,6 +1,10 @@
 # Application de Gestion de Produits
 [English](README.md) | Français
 
+## Test en ligne
+
+[productmanagement-grhabed5f9hvhhej.canadacentral-01.azurewebsites.net](https://productmanagement-grhabed5f9hvhhej.canadacentral-01.azurewebsites.net)
+
 ## Aperçu
 L'**Application de Gestion de Produits** est une application web développée avec ASP.NET Core 8.0, Blazor Server et SQLite pour gérer des produits. Elle permet d'ajouter, modifier, supprimer et lister des produits avec filtrage et pagination. L'application prend en charge la localisation (anglais et français), intègre Azure AD pour l'authentification et inclut des tests unitaires pour le service de produits.
 

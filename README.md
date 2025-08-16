@@ -1,6 +1,10 @@
 # Product Management Application
 English | [Français](README.fr.md)
 
+## Online Test
+
+[productmanagement-grhabed5f9hvhhej.canadacentral-01.azurewebsites.net](https://productmanagement-grhabed5f9hvhhej.canadacentral-01.azurewebsites.net)
+
 ## Overview
 The **Product Management Application** is a web-based application built with ASP.NET Core 8.0, Blazor Server, and SQLite for managing products. It provides functionality to add, edit, delete, and list products with filtering and pagination. The application supports localization (English and French), integrates Azure AD for authentication, and includes unit tests for the product service.
 

@@ -50,6 +50,20 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
+      - name: Set Azure AD App Settings
+        run: |
+          az webapp config appsettings set \
+            --resource-group Test \
+            --name ProductManagement \
+            --settings \
+              AzureAd__Instance="https://login.microsoftonline.com/" \
+              AzureAd__Domain=${{ secrets.AZUREAD_DOMAIN }} \
+              AzureAd__TenantId=${{ secrets.AZUREAD_TENANTID }} \
+              AzureAd__ClientId=${{ secrets.AZUREAD_CLIENTID }} \
+              AzureAd__ClientSecret=${{ secrets.AZUREAD_CLIENTSECRET }} \
+              AzureAd__CallbackPath="/signin-oidc" \
+              AzureAd__SignedOutCallbackPath="/signout-callback-oidc"
+
       - name: Deploy to Azure WebApp
         uses: azure/webapps-deploy@v2
         with:
